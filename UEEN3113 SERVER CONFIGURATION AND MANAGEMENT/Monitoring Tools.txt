@@ -1,0 +1,61 @@
+To view running processes, use ps command. E.g. ps a
+
+To view processes belong to specific user:
+ps -u user_name
+
+Use the --sort option to sort the output based on field specified
+ps au --sort=field
+
+To send a process to background, press Ctrl+Z
+Example, press Ctrl+Z while using nano will send it to background and return to the prompt
+
+If there is only one background process, we can use the fg command to bring back the process
+If there are a few background processes, fg will bring back the most recently working process.
+To list all background processes, use the jobs command.
+To bring a process, use the job ID in fg command, for example to bring back nano: fg 1
+
+We can start a process in the background by executing the command with & at the end of command
+For example: htop &
+
+Ubuntu 16.04 uses systemd for init system. It uses systemctl command to manage services.
+Ubuntu 14.04 and earlier use Upstart for init system. It uses service command to manage services. Examples:
+service ssh status
+service ssh stop
+
+Some services are started by the scripts in /etc/init.d/, not by Upstart or systemd commands. Examples
+/etc/init.d/ssh start
+/etc/init.d/ssh stop
+/etc/init.d/ssh status
+/etc/init.d/ssh reload
+
+To kill a process, use the kill command. By default, kill will send SIGTERM (value=15) signal to the process.
+If SIGTERM unable to terminate a process, then we can forcibly terminate the process by sending the SIGKILL signal (value=9).
+Examples
+kill 2634 (this will send SIGTERM signal to process 2634)
+kill -9 2644 (this will send SIGKILL signal to process 2644)
+
+view server performance, htop
+
+The uptime command shows
+how long the system has been running
+the number of currently logged in users
+load average for 1, 5 and 15 minutes intervals
+
+The w command shows all currently logged in users
+
+The last command shows last logged in users
+
+netstat - display the status of all network connections on a host. Examples
+list all ports that are listening and connected, for TCP and UDP: netstat -natu
+list only TCP connections: netstat -at
+list only UDP connections: netstat -au
+display IPv6 routing table: netstat -rn -A inet6
+
+nmap – explore network, scan port
+nmap IP //nmap 192.168.30.102
+nmap domain //sudo nmap polarbear
+nmap -p port_number IP_range //sudo nmap -p 80 192.168.30.100-120
+
+
+
+

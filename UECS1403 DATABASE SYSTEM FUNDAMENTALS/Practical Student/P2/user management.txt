@@ -1,0 +1,35 @@
+ALTER USER scott ACCOUNT LOCK    -- lock a user account
+ALTER USER scott ACCOUNT UNLOCK; -- unlocks a locked users account
+ALTER USER scott PASSWORD EXPIRE;  -- Force user to choose a new password
+DROP USER scott CASCADE;
+
+
+CREATE PROFILE my_profile LIMIT
+		PASSWORD_LIFE_TIME 30;
+	ALTER USER scott PROFILE my_profile;
+
+
+
+SQL> select password from dba_users where username='SCOTT';
+        PASSWORD
+         -----------------------------
+         F894844C34402B67
+
+        SQL> alter user scott identified by lion;
+        User altered.
+
+        SQL> connect scott/lion
+        Connected.
+
+        REM Do whatever you like...
+
+        SQL> connect system/manager
+        Connected.
+
+        SQL> alter user scott identified by values 'F894844C34402B67';
+        User altered.
+
+        SQL> connect scott/tiger
+        Connected.
+
+Desc dba_users;

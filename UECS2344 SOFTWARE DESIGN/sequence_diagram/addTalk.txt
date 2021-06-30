@@ -1,0 +1,37 @@
+
+frame addTalk
+
+actor "**++" as eventManager
+
+participant "<<boundary>>\nEventUI:\nConsoleUI" as boundary
+
+participant "<<control>>\nEventController:\nController" as controller
+
+participant "EventList:\nIEventList" as eventList
+
+participant "aTalk:\nTalk" as guest
+
+participant "anEvent:\nEvent" as event
+
+eventManager->boundary:addTalk()
+
+boundary->boundary: selectEvent()
+ref over boundary,eventList:selectEvent
+
+boundary-->boundary:anEvent
+
+opt anEvent!=null
+
+boundary->controller:addTalk(anEvent,title,speaker,duration)
+
+controller->*guest: <<create>>(title,speaker,duration)
+
+guest-->controller:
+
+controller->event:addTalk(aTalk)
+
+event-->controller:
+
+controller-->boundary:
+end
+boundary-->eventManager:

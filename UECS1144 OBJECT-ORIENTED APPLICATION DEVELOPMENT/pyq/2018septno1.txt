@@ -1,0 +1,39 @@
+ class Question1B
+    {
+    public readonly int w = 24;
+
+    public int x;
+
+    public int y;
+
+    public int z;
+
+    public void methodOne(int w)
+    {
+        x = w;
+    }
+
+    public string methodTwo()
+    {
+        return "24";
+    }
+    }
+
+class BTestProgram
+{
+    static void Main()
+{
+    Question1B q1b;
+    q1b = new Question1B();
+
+    q1b.x = 24;
+    q1b.y = 24;
+    q1b.z = 24;
+
+    q1b.methodOne();
+    Console.WriteLine(q1b.x);
+    q1b.x = q1b.methodTwo();
+    Console.WriteLine(q1b.x);
+
+}
+}

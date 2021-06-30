@@ -1,0 +1,50 @@
+1) for-each loop and Iterator - yes
+
+2) no. Automatically go through each element
+
+3) Refer to source code in DSAA_Prac5
+
+4) Note: LinkedList allows duplicates
+addAll -> [red, yellow, green, red, yellow, blue] -> union
+add
+removeAll -> [green] -> difference
+remove
+retainAll -> [red, yellow] -> intersection
+
+add(list2) -> [red, yellow, green, [red, yellow, blue]]
+add, remove will not work because it expect an element as parameter instead of collection
+
+5)
+add -> push()
+remove -> pop()
+size -> size()
+
+6)
+Queue is a subinterface of java.util.Collection.
+Yes.
+
+7)
+create a PriorityQueue -> using constructor
+e.g. new PriorityQueue<...>();
+
+ordering -> natural ordering
+
+examples:
+numbers -> 1,2,3,...
+string -> a,b,c,...
+
+highest priority -> least value
+
+8)
+use Collections.reverseOrder() in constructor.
+
+9)
+set operations
+- union
+- intersection
+- difference
+
+PriorityQueue set operations
+- addAll
+- removeAll
+- retainAll

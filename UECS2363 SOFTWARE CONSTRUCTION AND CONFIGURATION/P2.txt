@@ -1,0 +1,15 @@
+1. DIR (Command) and attribute of hidden files(argument)
+2. DIR (Command) and order files according to attributes(argument)
+3. DIR (Command) and order files according to file size(argument)
+
+1. DIR (Command) and all .jpg extension files(argument)
+2. DIR (Command) and all files with cli matching name(argument)
+
+1. DIR (Command). with redirection ">" the details as a result of executing DIR command was redirected to cli2.txt
+2. DIR (Command). with redirection ">" the sorting of texts entered using keyboard into CLI was redirected to cli.txt
+3. Results of executing DIR command is sorted in ascending order according to time modified.
+4. Results are shown listed to the brim of windows then paused
+
+1.zip file of all files in P2 'cli.zip' is created and saved in P2
+2.zip file 'cli2.zip' is created and saved in desktop
+3.Every file in P1 directory is displayed in CLI for /D %%y in desktop do @echo %%y

@@ -1,0 +1,5 @@
+Vicky	english:10	geography:20	malay:30	art:40
+Peter	english:50	maths:90	malay:15	art:50
+Carmen	english:80	maths:15	malay:50	art:90
+Melanie	science:10	maths:60	malay:80	art:20
+Albert	science:30	geography:25	malay:70	art:10

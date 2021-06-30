@@ -1,0 +1,71 @@
+1. slide 3 (Lecture note)
+2. slide 5 (Lecture note)
+3. check for seriazable and cloneable => that means can be serialized (store data in serialized form) and cloned (can be copied)
+https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/ArrayList.html
+https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/LinkedList.html
+https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Vector.html
+https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/PriorityQueue.html
+
+All can be serialized and cloned except PriorityQueue which can be serialized only.
+
+4. slide 6 (Lecture note)
+addAll​(Collection<? extends E> c):boolean
+
+5. slide 9 (Lecture note)
+If the inherited method doesn't have meaning in a class then use "throw new UnsupportedOperationException("Method not supported");"
+
+6.
+public class TestIterator {
+	public static void main(String[] args) {
+		Collection<String> collection = new ArrayList<>();
+		collection.add("New York");
+		collection.add("Atlanta");
+		collection.add("Dallas");
+		collection.add("Madison");
+		
+		Iterator<String> iterator = collection.iterator();
+		while(iterator.hasNext()) {// check if there is more element(s)
+			System.out.println(iterator.next().toUpperCase() + " ");// get the next element
+		}
+		System.out.println();
+	}
+}
+
+7.
+https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/List.html
+
+add​(int index, E element):void
+remove​(int index):E
+
+8.
+https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/ListIterator.html
+next():E
+previous():E
+
+9.
+["red"]
+["red", "yellow"]
+["red", "green", "yellow"]
+["blue", "red", "green", "yellow"]
+["blue", "red", "green"]
+["red", "green"]
+
+10. slide 16 (Lecture note)
+
+11.
+https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/ArrayList.html
+https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/LinkedList.html
+
+LinkedList (not in ArrayList):
+addFirst()
+addLast()
+removeFirst()
+removeLast()
+getFirst()
+getLast()
+
+12.
+String[] array = ["a", "b", "c"]
+
+ArrayList arrayList = new ArrayList(Arrays.asList(array))
+LinkedList linkedList = new LinkedList(Arrays.asList(array))

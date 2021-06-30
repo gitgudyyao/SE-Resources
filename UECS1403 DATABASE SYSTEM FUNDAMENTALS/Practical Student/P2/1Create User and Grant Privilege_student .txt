@@ -1,0 +1,167 @@
+
+ HELP index; 
+	
+ CREATE USER fes PROFILE "DEFAULT" IDENTIFIED BY fes
+ DEFAULT TABLESPACE "USERS" TEMPORARY TABLESPACE "TEMP"
+ PASSWORD EXPIRE
+ ACCOUNT UNLOCK;
+
+
+ GRANT CONNECT TO fes;
+
+ GRANT GRANT ANY PRIVILEGES TO fes WITH ADMIN OPTION; 	
+
+ grant create session, create table, unlimited tablespace to fes;
+
+ GRANT CREATE TABLE TO fes; 		
+
+ GRANT UNLIMITED TABLESPACE TO fes; 	
+
+ CONNECT fes /fes;
+
+
+ SELECT username, privilege FROM USER_SYS_PRIVS;
+ SELECT * FROM USER_SYS_PRIVS;
+ 
+ alter user fes identified by abcd;
+
+ create profile FES_PROFILE limit
+     failed_login_attempts 2
+     password_lock_time 10/86400
+     password_reuse_max 2
+     password_life_time 20/86400
+     password_grace_time 1
+     password_reuse_time 1/1440;
+
+
+ alter user fes profile FES_PROFILE;
+ ALTER USER fes PASSWORD EXPIRE;
+
+ select *
+ from DBA_PROFILES
+ where profile='FES_PROFILE';
+ 
+ set linesize 150;
+
+ alter user fes account unlock;
+ DROP PROFILE FES_PROFILE cascade;
+ 
+
+
+
+
+**test the login attempts continously for 2 times**
+
+****test grace time*****
+
+
+
+ALTER PROFILE FES_PROFILE LIMIT PASSWORD_GRACE_TIME 1/1440;
+
+
+
+select to_char(sysdate,'hh24:mi') from dual;
+
+
+
+
+
+create role managers identified by abc;
+start c:\3northwoods.sql;
+grant select on system.location to managers;
+create user fes identified by fes profile "DEFAULT";
+grant connect to fes;
+
+grant managers to fes with admin option;
+
+conn fes/xxx;
+
+set role managers identified by abc;
+
+select * from system.location;
+
+conn system/xxx;
+
+
+revoke managers from fes;
+
+conn fes/xxx;
+
+set role managers identified by abc;
+
+
+
+
+
+******ROLES************
+
+create roles clerks;
+
+create role managers identified by abc;
+
+start c:\3northwoods.sql;
+
+grant select, insert, update on system.course to clerks;
+
+grant select on system.location to managers;
+
+grant managers to fes;
+
+connect fes/fes;
+
+set role managers identified by abc;
+
+select * from system.location;
+
+Update system.location
+set capacity=100
+where loc_id=1;
+
+
+create user fict identified by fict profile "DEFAULT";
+grant connect to fict;
+
+grant clerks to fict;
+
+
+select * from system.course;
+
+Update system.course
+set credits=5
+where course_id=1;
+
+grant managers to clerks;
+
+select * from session_roles;
+
+set role managers identified by abc;
+
+SET ROLE NONE; 
+
+
+****ADMIN OPTION*******
+
+grant managers to fes with admin option;
+
+create user fam identified by fam profile "DEFAULT";
+
+grant connect to fam;
+
+grant managers to fam;
+
+
+****REVOKE PRIVILEGES*******
+
+conn system/Abc1234;
+
+revoke managers from fes;
+
+conn fam/fam;
+
+select * from system.location;
+
+DROP role managers;
+
+
+
+

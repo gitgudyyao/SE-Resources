@@ -1,0 +1,70 @@
+Practical 2
+Part 2: Programming Exercise
+
+1.
+public static Integer min(ArrayList<Integer> list) {
+	Integer currentMin = list.get(0);
+	for(int i = 1; i < list.size(); i++){
+		if (currentMin > list.get(i))
+			currentMin = list.get(i);
+	}
+	return currentMin;
+}
+
+public static void main(String[] args) {
+	ArrayList<Integer> nums = new ArrayList<Integer>();
+	nums.add(new Integer(2));
+	nums.add(new Integer(1));
+	nums.add(new Integer(5));
+	System.out.println(min(nums));
+}
+
+2.
+public static Integer max(ArrayList<Integer> list) {
+	Integer currentMax = list.get(0);
+	for(int i = 1; i < list.size(); i++){
+		if (currentMax < list.get(i))
+			currentMax = list.get(i);
+	}
+	return currentMax;
+}
+
+public static void main(String[] args) {
+	ArrayList<Integer> nums = new ArrayList<Integer>();
+	nums.add(new Integer(2));
+	nums.add(new Integer(1));
+	nums.add(new Integer(5));
+	System.out.println(max(nums));
+}
+
+Modified:
+1.
+- need Comparable interface
+- compareTo(Object o)
+- 1 >
+- 0 =
+- -1 <
+
+public static <E extends Comparable<E>> E min(ArrayList<E> list) {
+	E currentMin = list.get(0);
+	for(int i = 1; i < list.size(); i++){
+		if (currentMin.compareTo(list.get(i)) > 0)
+			currentMin = list.get(i);
+	}
+	return currentMin;
+}
+
+class Student implements Comparable <Student> {
+	private int indexNo;
+	private String name;
+	private int age;
+	
+	public int compareTo(Student st) {
+		if (this.age == st.age)
+			return 0;
+		else if (this.age > st.age)
+			return 1;
+		else
+			return -1;
+	}
+}

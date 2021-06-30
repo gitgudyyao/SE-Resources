@@ -1,0 +1,32 @@
+
+frame updateGuestStatus
+
+actor "**++" as eventManager
+
+participant "<<boundary>>\nEventUI:\nConsoleUI" as boundary
+
+participant "<<control>>\nEventController:\nController" as controller
+
+participant "EventList:\nIEventList" as eventList
+
+participant "anEvent:\nEvent" as event
+
+participant "aGuest:\nGuest" as guest
+
+eventManager->boundary:updateGuestStatus()
+
+boundary->boundary:selectGuest()
+
+ref over boundary,guest:selectGuest
+
+boundary-->boundary:aGuest
+
+opt aGuest!=null
+boundary->controller:updateGuestStatus(aGuest,status)
+
+controller->guest:setReplyStatus(status)
+guest-->controller:
+
+controller-->boundary:
+end
+boundary-->eventManager:

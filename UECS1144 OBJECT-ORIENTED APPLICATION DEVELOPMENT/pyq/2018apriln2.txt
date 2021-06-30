@@ -1,0 +1,42 @@
+public class ClubMember
+{
+    private string name;
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+    private string id;
+    public string ID
+    {
+        get { return id; }
+        set { id = value; }
+    }
+
+    public ClubMember(string aName, string aID)
+    {
+        aName = name;
+        aID = id;
+    }
+}
+
+public class ClubMemberRecord
+{
+    private ClubMember[] clubMembers;
+
+    public ClubMember[] CM
+    {
+        get { return clubMembers; }
+    }
+
+    private static readonly int MAX = 200;
+    public ClubMemberRecord()
+    {
+        clubMembers = new ClubMember[MAX];
+    }
+
+    public void addMR(ClubMember mr)
+    {
+        clubMembers.Add(mr);
+    }
+}

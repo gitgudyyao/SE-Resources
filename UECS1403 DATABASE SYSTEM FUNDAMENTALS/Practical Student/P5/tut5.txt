@@ -1,0 +1,47 @@
+START c:\OraData\Chapter3\3EmptyNorthwoods.sql;
+
+INSERT INTO location VALUES
+(9, 'BUS', '424', 1);
+
+INSERT INTO faculty (F_ID, F_LAST, F_FIRST, F_MI, LOC_ID)
+VALUES (14, 'Cox', 'Kim', 'J', 9);
+
+INSERT INTO student 
+VALUES (11, 'Miller', 'Sarah', 'M', '144 Windridge Blvd.', 'Eau Claire', 
+'WI', '54703', '7155559876', 'SR', TO_DATE('07/14/1985', 'MM/DD/YYYY'), 
+8891, 1, TO_YMINTERVAL('3-2'));
+
+INSERT INTO faculty (F_ID, F_LAST, F_FIRST, F_IMAGE)
+VALUES (2, 'Blanchard', 'John', EMPTY_BLOB());
+
+UPDATE faculty
+SET f_rank = 'FULL'
+WHERE f_id = 1;
+
+DELETE FROM student
+WHERE s_first = 'Sarah'
+AND s_last = 'Miller';
+
+DELETE FROM location
+WHERE loc_id = 9;
+
+INSERT INTO location VALUES
+(10, 'CR', '105', 150);
+
+ALTER TABLE faculty
+DISABLE CONSTRAINT faculty_loc_id_fk;
+
+ALTER TABLE course_section
+DISABLE CONSTRAINT course_section_loc_id_fk;
+
+TRUNCATE TABLE location;
+
+SELECT * FROM location;
+
+
+ON student
+FROM scott;
+
+
+savepoint locationp;
+

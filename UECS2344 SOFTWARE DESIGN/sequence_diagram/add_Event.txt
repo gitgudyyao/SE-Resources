@@ -1,0 +1,27 @@
+
+frame addEvent
+
+actor "++" as eventManager
+
+participant "<<boundary>>\nEventUI:\nConsoleUI" as boundary
+
+participant "<<control>>\nEventController:\nController" as controller
+
+participant "anEvent:\nEvent" as event
+
+participant "EventList:\nIEventList" as eventList
+
+eventManager->boundary:addEvent()
+
+boundary->controller:addEvent(title,theme,venue,date)
+
+controller -> *event : create (title,theme,venue,date) 
+
+event -->controller:anEvent
+
+controller->eventList:addEvent(anEvent)
+
+eventList-->controller:
+
+controller-->boundary:
+boundary-->eventManager:

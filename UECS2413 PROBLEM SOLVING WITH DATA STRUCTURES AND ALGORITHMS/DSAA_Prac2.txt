@@ -1,0 +1,138 @@
+1)
+Recursive method:
+-calls itself
+
+Characteristics:
+-one or more base cases,
+-each recursive call works on a smaller problem
+
+2)
+stack-overflow exception:
+-no more places on stack to place the extra contents.(to store methods' variables and parameters)
+-infinite recursive calls.
+-recursive call that is done continuously will keep adding contents to the stack until
+there is no more space and overflow occurs.
+
+3)
+a) True (Can change method with loop to recursive method)
+b) False (Recursive: Every method call needs to put some contents to the stack)
+c) True (Does not check for base case and recursive call)
+	e.g.
+	if ()
+		base
+	else
+		rec
+d) True
+-Don't always have to write a method using recursion sometimes it is better to use loops
+-Dependent on resources available
+-To simplify the code, work well with mathetics problem with recursive nature
+
+4)
+e.g.
+factorial(int n) {
+	if (n == 0) // base case
+		return 1;
+	else
+		return n * factorial(n-1);
+}
+
+factorial(5)
+= 5 * factorial(4)
+= 5 * (4 * factorial(3))
+= 5 * (4 * (3 * factorial(2)))
+= 5 * (4 * (3 * (2 * factorial(1))))
+= 5 * (4 * (3 * (2 * (1 * factorial(o)))))
+= 5 * (4 * (3 * (2 * (1 * 1))))
+= 5 * (4 * (3 * (2 * 1)))
+= 5 * (4 * (3 * 2))
+= 5 * (4 * 6)
+= 5 * 24
+= 120
+
+6 times recursive call
+
+5)
+e.g.
+fib(int index) {
+	if (index == 0)
+		return 0;// base case
+	else if (index == 1)
+		return 1;// base case
+	else
+		return fib(index - 1) + fib(index - 2);
+}
+
+fib(3)
+= fib(2) + fib(1)
+= (fib(1) + fib(0)) + 1
+= (1 + 0) + 1
+= 2
+
+5 times recursive call
+
+6)
+e.g.
+isPalindrome(String s) {
+	if (s.length() <= 1) //base case
+		return true;
+	else if (s.charAt(0) != s.charAt(s.length() - 1)) //base case
+		return false;
+	else
+		return isPalindrome(s.substring(1, s.length() -1));
+}
+
+isPalindrome("abdxcxdba") - 9
+isPalindrome("bdxcxdb") - 7
+isPalindrome("dxcxd") - 5
+isPalindrome("xcx") - 3
+isPalindrome("c") - 1 ( return true)
+
+5 times recursive call
+
+7)
+e.g.
+moveDisks(int n, char fromTower, char toTower, char auxTower) {
+	if (n == 1) // Stopping condition
+	  System.out.println("Move disk " + n + " from " +
+		from + " to " + to);
+	else {
+	  moveDisks(n - 1, from, aux, to);// recursive calls
+	  System.out.println("Move disk " + n + " from " + fromTower + " to " + toTower);
+	  moveDisks(n - 1, aux, to, from);// recursive calls
+	}
+}
+
+8)
+i.
+xMethod(int n1, int n2) {
+	int remainder;
+	
+	remainder = n1 % n2;
+	if (remainder == 0)
+		return n2;// base call
+	else
+		return xMethod(n2, remainder);// recursive call
+}
+
+ii.
+xMethod(int base, int exponent) {
+	if (exponent == 0)
+		return 1;// base call
+	else
+		return base * xMethod(base, exponent - 1);// recursive call
+}
+
+13)
+public static int pow(int base, int exponent) {
+	if (exponent == 0)
+		return 1;
+	else
+		return base * pow(base, exponent - 1);
+}
+
+14)
+public static void binaryPrint(int x) {
+	if (x > 0)
+		binaryPrint(x / 2);
+	System.out.println(x % 2);
+}

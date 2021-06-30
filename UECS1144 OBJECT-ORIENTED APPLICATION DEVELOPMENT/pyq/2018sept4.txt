@@ -1,0 +1,49 @@
+public class CO
+{
+    private string name;
+    public string Name
+    { get { return name; } }
+    private int ic;
+    public int IC { get { return ic; } }
+
+    public CO(string name, int ic)
+    {
+        this.name = name;
+        this.ic = ic;
+    }
+}
+
+public class PC
+{
+    protected CO owner;
+    public CO Owner
+    { get { return owner; } }
+
+    protected int no;
+    public int NO { get { return no; } }
+
+    protected decimal point;
+    public decimal P { get { return point; } }
+
+    public PC(string name, int ic, int no, decimal point)
+    {
+        this.no = no;
+        this.point = point;
+    }
+
+    public CO getOwnerInfo()
+    { return owner; }
+
+    public decimal getPointInfo()
+    { return point; }
+
+    public void reload(decimal amt)
+    {
+
+    }
+
+    public void redeem(decimal point)
+    {
+
+    }
+}

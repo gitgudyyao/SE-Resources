@@ -1,0 +1,66 @@
+public abstract class RI
+{
+    private int serial;
+    public int Serial
+    { get { return serial; } }
+    private string title;
+    public string Title
+    { get { return title; } }
+
+    public RI(int aserial, string atitle)
+    {
+        aserial = serial;
+        atitle = title;
+    }
+
+    public string getTitle()
+    { return title; }
+
+    public abstract decimal cost();
+    
+}
+
+public class Comic: RI
+{
+    private int price;
+    public int Price
+    { get { return price; } }
+    
+    public Comic(int serial, string title,int price) : base(serial,title)
+    {
+        this.price = price;
+    }
+
+    public override decimal cost()
+    {
+        return price;
+    }
+}
+
+public class Mag : RI
+{
+    private int fee;
+
+    public int Fee
+    { get { return fee; } }
+
+    private int no;
+    public int No
+    { get { return no; } }
+
+    private int price;
+    public int Price
+    { get { return price; } }
+
+    public Mag(int serial, string title,int fee, int no, int price) : base(serial,title)
+    {   this.fee = fee;
+        this.no = no;
+        this.price = price;
+    }
+
+    public override decimal cost()
+    {
+        return fee / no;
+    }
+
+}

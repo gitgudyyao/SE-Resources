@@ -1,0 +1,43 @@
+## Main function
+1. Create and start thread "ArmThread"
+2. Create and start thread "LegThread"
+3. Create and start thread "BodyThread"
+4. Create and start thread "AssemblerThread"
+5. Create and start thread "PackagerThread"
+6. Main thread runs starts signaling ArmTask, LegTask and BodyTask event
+7. AssemblerTask event is signaled when ArmTask, LegTask and BodyTask completes
+8. Packager event is signaled after AssemblerTask completes
+9. Operation Completes
+
+## ArmTask
+1. Wait until ArmTask event is signaled
+2. ArmTask starts running
+3. ArmTask starts crafting
+4. ArmTask event completes
+
+## LegTask
+1. Wait until LegTask event is signaled
+2. LegTask starts running
+3. LegTask starts crafting
+4. LegTask event completes
+
+## BodyTask
+1. Wait until BodyTask event is signaled
+2. BodyTask starts running
+3. BodyTask starts crafting
+4. BodyTask event completes
+
+## AssemblerTask
+1. Wait until AssemblerTask event is signaled
+2. AssemblerTask starts running
+3. AssemblerTask starts assembling the chair
+4. AssemblerTask starts repeating until 6 chairs is crafted
+4. AssemblerTask event Completes
+5. Starts signaling Packager event
+
+## Packager
+1. Wait until Packager event is signaled
+2. Packager starts running
+3. Packager starts packaging the chair
+4. Packager event Completes.
+5. Starts signaling PackagerDone event

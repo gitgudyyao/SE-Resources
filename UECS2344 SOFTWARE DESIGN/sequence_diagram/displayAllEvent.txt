@@ -1,0 +1,39 @@
+
+frame displayAllEvent
+
+actor "**++" as eventManager
+
+participant "<<boundary>>\nEventUI:\nConsoleUI" as boundary
+
+participant "<<control>>\nEventController:\nController" as controller
+
+participant "EventList:\nIEventList" as eventList
+
+participant "anEvent:\nEvent" as event
+
+eventManager ->boundary : displayEvent()
+
+boundary ->controller: getNumberOfEvent()
+
+controller ->eventList: getNumberOfEvent()
+
+eventList -->controller: count
+
+controller -->boundary:count
+
+opt count>0
+boundary ->controller: getAllEvent()
+
+controller ->eventList:getAllEvent()
+
+eventList -->controller:events
+
+controller -->boundary:events
+
+loop i<count
+boundary->event:getTitle()
+event-->boundary:title
+end
+end 
+
+boundary-->eventManager:

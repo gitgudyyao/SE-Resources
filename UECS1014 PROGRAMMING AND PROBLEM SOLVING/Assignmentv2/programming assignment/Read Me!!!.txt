@@ -1,0 +1,10 @@
+to open in visual studio double click that .sln file in project1.
+the booksList.txt file must in same directory as the .cpp file for it to work.(text file name must be "booksList.txt")(if want to change the name just make sure in the code the name also change, it should be under function getbooks, line67)
+that booksList.txt file outside project 1 serve as backup
+remember to replace the txt file inside project 1\project 1 to reset after perform the delete function
+maximize the cmd prompt so that it can fit when list out all book record (so many column lol)
+those sentences feel free to change if u like(those in " " shouldn't affect the function)(sry for bad english)
+pls test it out asap and give feedback on any changes needed.
+tqvm
+have a nice day
+

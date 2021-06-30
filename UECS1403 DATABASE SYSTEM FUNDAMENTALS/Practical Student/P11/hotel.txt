@@ -1,0 +1,81 @@
+CREATE TABLE Hotel(
+hno char(4) not null,
+name varchar(20) not null,
+address varchar(50),
+primary key (hno));
+
+CREATE TABLE Room (
+hno char(4) not null,
+rno char(4) not null,
+type varchar(6) not null, /*there are single, double, family types*/
+price decimal(6,2),
+constraint pk_room primary key (hno, rno),
+constraint fk_room_hno foreign key (hno) references hotel);
+
+CREATE TABLE Guest (
+gno char(4) not null,
+name varchar(20) not null,
+address varchar(50),
+constraint pk_guest primary key (gno));
+
+CREATE TABLE Booking (
+hno char(4) not null,
+gno char(4) not null,
+datefrom date not null,
+dateto date,
+rno char(4),
+constraint pk_booking primary key (hno, gno, datefrom),
+constraint fk_booking_gno foreign key (gno) references guest,
+constraint fk_booking_hno_gno foreign key (hno, rno) references room);
+
+INSERT INTO Hotel VALUES ('H001', 'Grosvenor Hotel', 'Mayfair, London');
+INSERT INTO Hotel VALUES ('H002','Hyatt Regency', '99 Main Street, Edinburgh');
+INSERT INTO Hotel VALUES ('H003', 'Earls Court Hotel', '123 earls Court Road, London');
+INSERT INTO Hotel VALUES ('H004', 'Lakes Resort Hotel', 'Ambleside, Lake Windermere');
+INSERT INTO Hotel VALUES ('H005', 'Eagle Cliffs Hotel', '63 West Terrace, Aberdeen');
+INSERT INTO Hotel VALUES ('H006', 'Caledonian Hotel', '12 Bannockburn Street, Glasgow');
+
+INSERT INTO Guest VALUES ('G001', 'Thomas', '2 North Street, Chelsea, London');
+INSERT INTO Guest VALUES ('G002','Veronica Wong', '7 South Street, Wimbledon, London');
+INSERT INTO Guest VALUES ('G003', 'Imborgno','Unit 3, 7 Smith Road, Detroit');
+INSERT INTO Guest VALUES ('G004','Charles', '452 West Terrace, Adelaide');
+INSERT INTO Guest VALUES ('G005', ' Bianca Bruce', '655 North Cypruse Road, Sydney');
+INSERT INTO Guest VALUES ('G006', 'Cassandra', '12 High Street, California');
+
+INSERT INTO Room VALUES ('H001','R102','double',39.00);
+INSERT INTO Room VALUES ('H001','R103','double',39.00);
+INSERT INTO Room VALUES ('H001','R101','single',22.00);
+INSERT INTO Room VALUES ('H001','R202','double',44.00);
+INSERT INTO Room VALUES ('H001','R201','family',44.00);
+INSERT INTO Room VALUES ('H001','R203','family',49.00);
+INSERT INTO Room VALUES ('H002','R101','single',25.00);
+INSERT INTO Room VALUES ('H002','R102','double',41.00);
+INSERT INTO Room VALUES ('H002','R103','family',49.00);
+INSERT INTO Room VALUES ('H002','R201','family',49.00);
+INSERT INTO Room VALUES ('H003','R101','single',25.00);
+INSERT INTO Room VALUES ('H003','R102','double',41.00);
+INSERT INTO Room VALUES ('H003','R103','family',49.00);
+INSERT INTO Room VALUES ('H004','R203','double',39.00);
+INSERT INTO Room VALUES ('H005','R102','double',35.00);
+INSERT INTO Room VALUES ('H005','R103','double',35.00);
+INSERT INTO Room VALUES ('H005','R201','family',39.00);
+INSERT INTO Room VALUES ('H006','R101','double',33.00);
+INSERT INTO Room VALUES ('H006','R102','double',37.00);
+INSERT INTO Room VALUES ('H006','R202','family',39.00);
+INSERT INTO Room VALUES ('H006','R203','family',39.00);
+
+INSERT INTO Booking VALUES ('H001','G001','01-MAY-97',null,null);
+INSERT INTO Booking VALUES ('H004','G006','01-APR-97',null,'R203');
+INSERT INTO Booking VALUES ('H002','G004','31-MAR-97','13-APR-97','R103');
+INSERT INTO Booking VALUES ('H003','G003','01-APR-97',null,'R103');
+INSERT INTO Booking VALUES ('H002','G002','22-MAR-97','27-MAR-97','R101');
+INSERT INTO Booking VALUES ('H001','G002','12-MAY-97',null,null);
+INSERT INTO Booking VALUES ('H005','G006','01-MAY-97','12-MAY-97','R201');
+INSERT INTO Booking VALUES ('H006','G001','04-MAR-97','20-MAR-97','R203');
+INSERT INTO Booking VALUES ('H001','G003','22-MAR-97','27-MAR-97','R201');
+
+
+
+
+
+

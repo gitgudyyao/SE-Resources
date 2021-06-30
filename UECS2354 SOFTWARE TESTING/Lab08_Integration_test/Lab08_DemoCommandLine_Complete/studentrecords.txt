@@ -1,0 +1,15 @@
+Gardener	history:50	geography:73	science:47	malay:13
+Chuck	english:29	science:42	maths:3	history:14
+Dyson	maths:17	malay:15	science:80	geography:16
+Nataline	malay:61	geography:90	science:52	history:37
+Wilfred	english:57	malay:27	maths:99	art:47
+Tella	art:8	science:59	geography:52	maths:23
+Lauren	maths:55	art:78	english:92	history:5
+Rozina	english:41	geography:29	art:13	maths:83
+Dee	english:83	maths:22	art:38	history:58
+Nicolina	art:14	history:3	geography:30	science:39
+Desmund	malay:21	english:76	history:42	maths:16
+Evvie	art:7	history:75	maths:17	geography:74
+Wandis	art:77	maths:66	geography:17	science:61
+Chryste	english:99	history:25	geography:53	maths:36
+Boyce	malay:24	history:46	art:24	maths:28

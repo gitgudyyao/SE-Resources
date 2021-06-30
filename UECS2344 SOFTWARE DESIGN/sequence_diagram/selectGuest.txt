@@ -1,0 +1,36 @@
+
+frame selectGuest
+
+actor "**++" as eventManager
+
+participant "<<boundary>>\nEventUI:\nConsoleUI" as boundary
+
+participant "<<control>>\nEventController:\nController" as controller
+
+participant "EventList:\nIEventList" as eventList
+
+participant "anEvent:\nEvent" as event
+
+participant "aGuest:\nGuest" as guest
+
+eventManager->boundary:selectGuest()
+
+boundary->boundary:displayGuests()
+
+ref over boundary,guest:displayGuests()
+
+boundary-->boundary:anEvent
+
+alt anEvent!=null
+boundary->controller:selectGuest(index,anEvent)
+
+controller->event:selectGuest(index)
+
+event-->controller:guest
+
+controller-->boundary:guest
+
+boundary-->eventManager:guest
+else else
+boundary-->eventManager:null
+end

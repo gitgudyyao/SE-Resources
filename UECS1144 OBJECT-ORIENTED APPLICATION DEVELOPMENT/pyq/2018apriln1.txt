@@ -1,0 +1,36 @@
+public class Toaster
+{
+    private string brand;
+    public string Brand
+    { get { return brand; } }
+    private string model;
+    public string Model
+    {get{return model;}}
+    private int hcl;
+    public int HCL
+    {
+        get { return hcl; }
+    }
+    private string mode;
+    public string Mode
+    { get { return mode; } }
+    public Toaster(string aBrand, string aModel)
+    {
+        brand = aBrand;
+        model = aModel;
+        hcl = 1;
+        mode = "STOP";
+    }
+
+    public int setHeatLevel(int heat)
+    {
+        heat = hcl;
+       
+        string mode1 = "START";
+        mode1 = mode;
+        return heat + 1 ;
+     
+    }
+
+
+}

@@ -1,0 +1,101 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+public class HirePurchase
+{
+    private decimal amt;
+
+    public decimal Amt
+    {
+        get { return amt; }
+        set { amt = value;}     
+    }
+
+    private decimal rate;
+
+    public decimal Rate
+    {
+        get { return rate; }
+        set { rate = value; }
+    
+    }
+
+    private int hire;
+    public int Hire
+    {
+        get { return hire; }
+        set { hire = value; }
+    }
+
+    public HirePurchase(decimal aAmt, decimal aRate, int aHire)
+    {
+        amt = aAmt;
+        rate = aRate;
+        hire = aHire;
+    }
+    private decimal repay;
+
+    public decimal Repay
+    {
+        get { return repay; }
+    }
+
+    private decimal total;
+
+    public decimal Total
+    {
+        get { return total; }
+    }
+
+    public decimal totalint()
+    {
+       return total = amt * (rate / 100) * hire;
+    }
+
+    public decimal repayamt()
+    {
+        return repay = (amt+total)/(hire*12);
+    }
+
+}
+
+public class HirePurchaseTest
+{
+    static void Main()
+    {
+        do
+        {
+            decimal amount, rate;
+            int hire;
+            Console.Write("Amount Financed (RM): ");
+            string a = Console.ReadLine();
+            amount = Convert.ToDecimal(a);
+            Console.Write("Interest Rate (% p.a.flat:) ");
+            string b = Console.ReadLine();
+            rate = Convert.ToDecimal(b);
+            Console.Write("Hiring Period (in Years): ");
+            string c = Console.ReadLine();
+            hire = Convert.ToInt32(c);
+
+            HirePurchase calc = new HirePurchase(amount, rate, hire);
+
+            Console.Write("Calculated Interest Charges (RM):");
+            Console.WriteLine(calc.totalint());
+            Console.Write("Monthly Repayment (RM): ");
+            Console.WriteLine(calc.repayamt());
+            Console.WriteLine("Do you need another calculation? (Y OR N)");
+           
+        } while ((Console.ReadLine() == "Y" || Console.ReadLine() =="y"));
+
+    }
+}
+
+
+   
+
+
+

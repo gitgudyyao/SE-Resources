@@ -1,0 +1,6 @@
+cat house dog mouse horse
+house mouse horse
+15
+333 1111 44 2 33333
+1111 33333
+9

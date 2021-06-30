@@ -1,0 +1,52 @@
+
+frame displayTalks
+
+actor "**++" as eventManager
+
+participant "<<boundary>>\nEventUI:\nConsoleUI" as boundary
+
+participant "<<control>>\nEventController:\nController" as controller
+
+participant "EventList:\nIEventList" as eventList
+
+participant "anEvent:\nEvent" as event
+
+participant "aTalk:\nTalk" as talk
+eventManager->boundary:displayTalks()
+
+boundary->boundary: selectEvent()
+ref over boundary,eventList:selectEvent
+
+boundary-->boundary:anEvent
+
+opt anEvent!=null
+
+boundary->controller:getNumberOfTalk(anEvent)
+
+controller->event:getNumberOfTalk(anEvent)
+
+event-->controller:count
+
+controller-->boundary:count
+
+opt count>0
+boundary->controller:getAllTalk(anEvent)
+
+controller->event:getAllTalk(anEvent)
+
+event-->controller:talks
+
+controller-->boundary:talks
+
+loop i<count
+boundary->talk:getTitle
+talk-->boundary:title
+boundary->talk:getSpeaker
+talk-->boundary:speaker
+boundary->talk:getDuration
+talk-->boundary:duration
+end 
+end 
+end
+
+boundary-->eventManager:

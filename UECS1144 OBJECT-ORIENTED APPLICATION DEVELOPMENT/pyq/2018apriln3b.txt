@@ -1,0 +1,36 @@
+public class read
+{
+    public static void Main()
+    {
+        if (File.Exists("ok.txt"))
+        {
+            try
+            {
+                string gender, sub;
+                int index;
+
+                StreamReader reader = new StreamReader("ok.txt");
+
+                string line = reader.ReadLine();
+
+                Console.WriteLine("Enter Gender:");
+                gender = Console.ReadLine();
+
+                while (line != null)
+                {
+                    index = reader.IndexOf();
+                   
+                }
+
+                reader.Close();
+            }
+            catch (IOException exc)
+            {
+                Console.WriteLine("File error:" + exc.Message);
+            }
+        }
+        else
+        {
+            Console.WriteLine("File does not exists");
+        }
+} } 

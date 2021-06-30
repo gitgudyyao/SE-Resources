@@ -1,0 +1,88 @@
+public class Comic
+{
+    private string title;
+    public string Title
+    {
+        get { return title; }
+        set { title = value; }
+
+    }
+
+    private decimal price;
+    public decimal Price
+    {
+        get { return price; }
+        set { price = value; }
+    }
+    private int quant;
+    public int Quant
+    {
+        get { return quant; }
+        set { quant = value; }
+    }
+    public Comic(string aTitle, decimal aPrice, int aQuant)
+    {
+        title = aTitle;
+        price = aPrice;
+        quant = aQuant;
+    }
+    private decimal cost;
+
+    public decimal Cost
+    { get { return cost; } }
+
+    public decimal ComputeCost()
+    {
+        return cost = price * quant;
+    }
+}
+
+public class Invoice
+{
+    private string date;
+    public string Date
+    {
+        get { return date; }
+    }
+
+    private Comic[] comicList;
+
+    public Comic[] ComicList
+    {
+        get { return comicList; }
+    }
+
+    public int numberOfComic;
+
+    public int NumberOfComic
+    {
+        get { return numberOfComic; }
+    }
+
+    private static readonly int MAX = 50;
+    public Invoice(string aDate, int aNumber)
+    {
+        date = aDate;
+        numberOfComic = aNumber;
+        comicList = new Comic[MAX]; 
+        
+    }
+
+    public void AddComic(Comic comic)
+    {
+        if (numberOfComic < MAX)
+        {
+            comicList[numberOfComic] = comic;
+            numberOfComic++;
+        }
+    }
+
+    private decimal total;
+    public decimal ComputeTotal()
+    {
+        return total;
+    }
+
+}
+
+
